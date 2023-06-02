@@ -1,5 +1,7 @@
 public class VerifyDate {
 	
+
+	//added comment for pushing into github
 	//method to handle potential checks against two dates
 	public static Date CheckDates(Date date1, Date date2) {
 		//if date2 is within the next 30 days of date1, use date2.  Otherwise use the end of the month
