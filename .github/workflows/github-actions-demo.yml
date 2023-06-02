@@ -40,5 +40,5 @@ jobs:
           
       - name: Authenticate Salesforce ORG
         run: |
-          sfdx force:auth:jwt:grant --clientid HUB_CONSUMER_KEY --jwtkeyfile assets/server.key --username HUB_USER_NAME --setdefaultdevhubusername -a HubOrg
+          sfdx force:auth:jwt:grant --clientid 3MVG9n_HvETGhr3BO3AwKRfyu9dG4WTcrinArTKI5s_XAW_MC1aWwk --jwtkeyfile assets/server.key --username ikhlas.a.shaikh@wise-wolf-iglrtz.comand --setdefaultdevhubusername -a HubOrg
       
