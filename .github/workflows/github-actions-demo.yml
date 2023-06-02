@@ -38,7 +38,11 @@ jobs:
         run: |
           openssl enc -nosalt -aes-256-cbc -d -in assets/server.key.enc -out assets/server.key -base64 -K DE3B4F6346E0CFA95CA695168A0FD8DA4D06AE808A0AFA9A4DBD2502D5DD6FE7 -iv AC767FEDCF2105140E84B62495C3F43A
           
-      - name: Authenticate Salesforce ORG
-        run: |
-          sfdx force:auth:jwt:grant --clientid 3MVG9n_HvETGhr3BO3AwKRfyu9dG4WTcrinArTKI5s_XAW_MC1aWwk --jwtkeyfile assets/server.key --username ikhlas.a.shaikh@wise-wolf-iglrtz.comand --setdefaultdevhubusername -a HubOrg
+      # Authorize SF Org
+    - name: Authorize SF Org
+      env:
+        CLIENT_ID: ${{ secrets.SALESFORCEPRODCLIENTID }}
+        USERNAME: ${{ secrets.SALESFORCEPRODUSERNAME }}
+        INSTANCE_URL: ${{ secrets.SALESFORCEPRODINSTANCEURL }}
+      run: sfdx force:auth:jwt:grant --clientid $CLIENT_ID --jwtkeyfile ./buildfiles/server.key --username $USERNAME --instanceurl $INSTANCE_URL -a prod
       
