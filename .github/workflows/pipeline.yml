@@ -22,9 +22,11 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Setup Node
+   # Setup Node
     - name: Setup Node
       uses: actions/setup-node@v1
+      with:
+          node-version: '14.x'
     
     # Install SFDX CLI
     - name: Install SFDX CLI
